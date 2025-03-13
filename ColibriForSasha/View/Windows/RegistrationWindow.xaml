@@ -1,0 +1,87 @@
+﻿<Window x:Class="ColibriForSasha.View.Windows.RegistrationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ColibriForSasha.View.Windows"
+        mc:Ignorable="d"
+        Title="RegistrationWindow" SizeToContent="WidthAndHeight" 
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
+        MinHeight="200" MinWidth="500">
+    <Grid Margin="10">
+        <Grid.Background>
+            <ImageBrush ImageSource="\resourse\фон2.jpg"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <Image Source="/Resourse/ColibriLogo.png"/>
+
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Resourse/rectangle.png" Opacity="0.66"/>
+            </Grid.Background>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="40" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="Регистрация" Grid.Row="1" FontWeight="Bold"
+           HorizontalAlignment="Center" 
+           FontSize="40" />
+
+                <TextBlock Text="Фамилия " Grid.Row="3" HorizontalAlignment="Left"  FontSize="20"/>
+                <TextBox Name="FirstnameTb" Grid.Row="4"/>
+
+                <TextBlock Text="Имя " Grid.Row="6" HorizontalAlignment="Left"  FontSize="20"/>
+                <TextBox Name="NameTb" Grid.Row="7"/>
+
+                <TextBlock Text="Отчество " Grid.Row="9" HorizontalAlignment="Left"  FontSize="20"/>
+                <TextBox Name="MiddlenameTb" Grid.Row="10"/>
+
+                <TextBlock Text="Дата рождения " Grid.Row="12" HorizontalAlignment="Left"  FontSize="20"/>
+                <DatePicker Name="DayeOfBirthDp" Grid.Row="13"/>
+
+                <TextBlock Text="Номер телефона " Grid.Row="15" HorizontalAlignment="Left"  FontSize="20"/>
+                <TextBox Name="NumberPhoneTb" Grid.Row="16"/>
+
+                <TextBlock Text="Почта " Grid.Row="18" HorizontalAlignment="Left"  FontSize="20"/>
+                <TextBox Name="EmailTb" Grid.Row="19"/>
+
+                <TextBlock FontSize="20" Grid.Row="23"  HorizontalAlignment="Right">
+        Уже есть аккаут?
+        <Hyperlink Name="EntryHL" Click="EntryHL_Click">
+             Войти
+        </Hyperlink>
+            </TextBlock>
+
+            <Button Name="RegBtn" Click="RegBtn_Click" 
+            Content="Зарегистрироваться" Grid.Row="21" Width="250" HorizontalAlignment="Center"/>
+            </Grid>
+    </Grid>
+    </Grid>
+</Window>
