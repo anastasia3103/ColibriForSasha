@@ -23,7 +23,7 @@
 
         <TextBlock Text="ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ ДЛЯ ПРИЛОЖЕНИЯ &quot;COLIBRIES&quot; " 
                    TextWrapping="Wrap" TextAlignment="Center" FontWeight="Bold"
-                   Width="300" FontSize="18"/>
+                   Width="300" FontSize="19"/>
 
         <TextBlock Text="1. ОБЩИЕ ПОЛОЖЕНИЯ " TextWrapping="Wrap" Grid.Row="2"
                    TextAlignment="Center" Width="300" FontSize="18"/>
