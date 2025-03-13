@@ -6,8 +6,7 @@
         xmlns:local="clr-namespace:ColibriForSasha.View.Windows"
         mc:Ignorable="d"
         Title="ConfPolicyWindow" SizeToContent="Height"
-        Width="1000"
-          ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Width="1000" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
