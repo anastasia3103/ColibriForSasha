@@ -7,7 +7,7 @@
 
         <Style.Resources>
             <Style TargetType="Border">
-                <Setter Property="CornerRadius" Value="10" />
+                <Setter Property="CornerRadius" Value="5" />
             </Style>
         </Style.Resources>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ColibriForSasha.Model;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,6 @@ namespace ColibriForSasha
     /// </summary>
     public partial class App : Application
     {
+        public static SevodinKursovayaEntities context = new SevodinKursovayaEntities();
     }
 }

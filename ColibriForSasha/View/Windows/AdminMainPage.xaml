@@ -1,11 +1,11 @@
-﻿<Window x:Class="ColibriForSasha.MainWindow"
+﻿<Window x:Class="ColibriForSasha.View.Windows.AdminMainPage"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ColibriForSasha"
+        xmlns:local="clr-namespace:ColibriForSasha.View.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="820" MinWidth="1280"
+        Title="AdminMainPage" MinHeight="820" MinWidth="1280"
 WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid >
         <Grid.RowDefinitions>
@@ -39,8 +39,8 @@ WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
                 <Button FontFamily="Myanmar Text" 
                  FontWeight="DemiBold" Width="140" Name="ProfileBtn"
-                Content="Профиль" Click="ProfileBtn_Click"  Height="70"/>
-                
+                Content="Профиль"  Height="70"/>
+
             </StackPanel>
         </Grid>
         <Frame Grid.Row="2" Name="MainUserFrame" NavigationUIVisibility="Hidden"/>

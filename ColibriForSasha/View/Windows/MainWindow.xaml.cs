@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ColibriForSasha.AppData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace ColibriForSasha
         public MainWindow()
         {
             InitializeComponent();
+
+            FrameHelper.MainUserFrame = MainUserFrame;
+            MainUserFrame.Navigate(new View.Pages.MainPage());
+        }
+
+        private void MainBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.MainUserFrame.Navigate(new View.Pages.MainPage());
+        }
+
+
+        private void ProfileBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.MainUserFrame.Navigate(new View.Pages.ProfilePage());
+        }
+
+        private void ProductsBtn_Click(object sender, RoutedEventArgs e)
+        {
+            FrameHelper.MainUserFrame.Navigate(new View.Pages.ProductsPage());
         }
     }
 }
