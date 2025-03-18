@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" MinHeight="820" MinWidth="1280"
 WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
-    <Grid >
+    <Grid Background="red">
         <Grid.RowDefinitions>
             <RowDefinition Height="100" />
             <RowDefinition Height="10" />

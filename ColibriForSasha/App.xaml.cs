@@ -14,6 +14,8 @@ namespace ColibriForSasha
     /// </summary>
     public partial class App : Application
     {
+
+        public static User currentUser;
         public static SevodinKursovayaEntities context = new SevodinKursovayaEntities();
     }
 }

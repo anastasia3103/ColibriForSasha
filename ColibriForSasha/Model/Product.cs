@@ -26,7 +26,7 @@ namespace ColibriForSasha.Model
         public decimal Price { get; set; }
         public int TypeOfProductId { get; set; }
         public int StatusProductId { get; set; }
-        public byte[] Photo { get; set; }
+        public string Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }

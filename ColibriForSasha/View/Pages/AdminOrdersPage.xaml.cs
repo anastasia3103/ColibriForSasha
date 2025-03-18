@@ -1,5 +1,4 @@
-﻿using ColibriForSasha.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,24 +16,18 @@ using System.Windows.Shapes;
 namespace ColibriForSasha.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для ProfilePage.xaml
+    /// Логика взаимодействия для AdminOrdersPage.xaml
     /// </summary>
-    public partial class ProfilePage : Page
+    public partial class AdminOrdersPage : Page
     {
-        public List<Order> order = App.context.Order.ToList();
-        public ProfilePage()
+        public AdminOrdersPage()
         {
             InitializeComponent();
 
-            OrderLv.ItemsSource = App.context.Order.Where(u => u.User.Id == App.currentUser.Id).ToList(); 
+            OrderLv.ItemsSource = App.context.Order.ToList();
         }
 
-        private void MoreInfBtn_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void EditTb_Click(object sender, RoutedEventArgs e)
+        private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
 
         }

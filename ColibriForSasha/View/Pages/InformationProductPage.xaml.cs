@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ColibriForSasha.AppData;
+using ColibriForSasha.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +22,46 @@ namespace ColibriForSasha.View.Pages
     /// </summary>
     public partial class InformationProductPage : Page
     {
-        public InformationProductPage()
+
+        private Product _selectedProduct;
+
+        public InformationProductPage(object selectedProduct)
         {
             InitializeComponent();
+            _selectedProduct = selectedProduct as Product;
+
+            DataContext = selectedProduct;
         }
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
+            if(_selectedProduct != null)
+        {
+                Order order = new Order()
+                {
+                    IdUser = App.currentUser.Id,
+                    IdProduct = _selectedProduct.Id,
+                    Date = DateTime.Now,
+                    StatusOrderId = 1
+                };
+
+                App.context.Order.Add(order);
+                App.context.SaveChanges();
+
+                MessageBox.Show("Товар добавлен в заказ!");
+            }
+        else
+            {
+                MessageBox.Show("Товар не выбран!");
+            }
+
+            
 
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            FrameHelper.MainUserFrame.Navigate(new View.Pages.ProductsPage());
         }
     }
 }

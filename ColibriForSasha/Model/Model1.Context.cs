@@ -30,6 +30,7 @@ namespace ColibriForSasha.Model
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<StatusOrder> StatusOrder { get; set; }
         public virtual DbSet<StatusProduct> StatusProduct { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<TypeOfProduct> TypeOfProduct { get; set; }
         public virtual DbSet<User> User { get; set; }
     }

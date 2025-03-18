@@ -38,11 +38,11 @@ WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
                 <Separator Height="0" Width="20"/>
 
                 <Button FontFamily="Myanmar Text" 
-                 FontWeight="DemiBold" Width="140" Name="ProfileBtn"
-                Content="Профиль"  Height="70"/>
+                 FontWeight="DemiBold" Width="140" Name="OrderBtn"
+                Content="Заказы" Click="OrderBtn_Click"  Height="70"/>
 
             </StackPanel>
         </Grid>
-        <Frame Grid.Row="2" Name="MainUserFrame" NavigationUIVisibility="Hidden"/>
+        <Frame Grid.Row="2" Name="MainAdminFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

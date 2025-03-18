@@ -5,10 +5,79 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ColibriForSasha.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="720" d:DesignWidth="1280"
       Title="AdminProductsPage">
 
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Каталог товаров" FontSize="40" FontWeight="Bold" HorizontalAlignment="Center"/>
+
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions   >
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="50" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="130" />
+                <ColumnDefinition Width="30" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="130" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Поиск занятия" FontSize="30"/>
+            <TextBlock Text="Фильтрация по интересам" Grid.Column="4" FontSize="30" />
+
+            <TextBox Grid.Row="1" Name="ProductTb"/>
+            <Button Content="Найти"  Name="SearchBtn" Grid.Column="2" Grid.Row="1" Click="SearchBtn_Click" />
+            <ComboBox Grid.Column="4"   Name="FilterCmb" Grid.Row="1" Width="400"
+               Height="50" HorizontalAlignment="left" SelectionChanged="FilterCmb_SelectionChanged"/>
+            <Button Content="Удалить"  Name="DeleteBtn" Grid.Column="5" Grid.Row="1" Click="DeleteBtn_Click" />
+
+        </Grid>
+
+
+        <ListBox Grid.Row="4" Name="ProductLb"
+     ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" BorderBrush="Gray" CornerRadius="20"
+                Padding="10" Width="210" Margin="10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="10"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Button Name="SelectProductBtn" Click="SelectProductBtn_Click_1"  Background="Transparent">
+                                <Image Source="{Binding Photo}" Stretch="Fill" Width="160" Height="170"
+                       />
+                            </Button>
+                            <TextBlock Text="{Binding Title}" FontWeight="Black" 
+                           HorizontalAlignment="Left" FontSize="16" Grid.Row="2"/>
+                            <TextBlock Text="{Binding Price, StringFormat={}{0:C2}}" 
+                        HorizontalAlignment="Left" FontSize="16" Grid.Row="4"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
     </Grid>
 </Page>

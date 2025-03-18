@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ColibriForSasha.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,9 +41,41 @@ namespace ColibriForSasha.View.Windows
 
         private void EntryBtn_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            Close();
+            try
+            {
+                User currentUser = App.context.User.FirstOrDefault(p => p.Email == LoginTb.Text
+                && p.Password == PasswordPb.Password);
+
+                if (currentUser != null)
+                {
+                    App.currentUser = currentUser;
+                    MessageBox.Show("Авторизация прошла успешно!");
+
+                    if (currentUser.RoleId == 1)
+                    {
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        AdminMainPage adminMainWindow = new AdminMainPage();
+                        adminMainWindow.Show();
+                        Close();
+                    }
+
+                }
+                else
+                {
+                    MessageBox.Show("Пользователь не найден!");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ColibriForSasha.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,19 +21,52 @@ namespace ColibriForSasha.View.Pages
     /// </summary>
     public partial class ProductsPage : Page
     {
+        public List<Product> product = App.context.Product.ToList();
         public ProductsPage()
         {
             InitializeComponent();
-        }
+            ProductLb.ItemsSource = product;
 
+            FilterCmb.SelectedValuePath = "Id";
+            FilterCmb.DisplayMemberPath = "Title";
+            FilterCmb.ItemsSource = App.context.TypeOfProduct.ToList();
+
+            App.context.TypeOfProduct.ToList().Insert(0, new TypeOfProduct() { Title = "Все типы" });
+
+
+
+        }
+        
         private void FilterCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            TypeOfProduct typeOfProduct = FilterCmb.SelectedItem as TypeOfProduct;
+            if (FilterCmb.SelectedIndex != 0)
+            {
+                ProductLb.ItemsSource = product.Where(x => x.TypeOfProduct.Id == typeOfProduct.Id);
 
+            }
+            else
+            {
+                ProductLb.ItemsSource = product;
+            }
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
+            ProductLb.ItemsSource = product.
+               Where(p => p.Title.Contains(ProductTb.Text)).ToList();
+        }
 
+        
+
+        private void SelectProductBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            if (button == null) return;
+
+            var selectedProduct = button.DataContext as Product;
+            if (selectedProduct == null) return;
+            NavigationService.Navigate(new View.Pages.InformationProductPage(selectedProduct));
         }
     }
 }

@@ -10,10 +10,8 @@
 
     <Grid Margin="20">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="20" />
-            <RowDefinition Height="500" />
-            <RowDefinition Height="1*" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="680" />
         </Grid.RowDefinitions>
         <Grid>
             <Button Name ="BackBtn" Width="150" 
@@ -25,37 +23,43 @@
            FontSize="35" HorizontalAlignment="Center"/>
         </Grid>
 
-        <Grid Grid.Row="2">
+        <Grid Grid.Row="1" Grid.RowSpan="3">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="20"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="600"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="450"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="500"/>
+                <ColumnDefinition Width="750"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Text="{Binding Title}"
-                       FontSize="35" Grid.ColumnSpan="2" FontWeight="Bold"/>
 
-            <Image Grid.Row="2" Source="{Binding Photo}"/>
+            <Image Grid.Row="2" Height="600" VerticalAlignment="Center" 
+                   Source="{Binding Photo}"/>
 
-            <Grid Grid.Column="2" Grid.Row="2">
+            <Grid Grid.Column="2" Grid.Row="2" Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="100" />
                     <RowDefinition Height="AUTO" />
-                    <RowDefinition Height="10" />
+                    <RowDefinition Height="40" />
                     <RowDefinition Height="50" />
                     <RowDefinition Height="40" />
                     <RowDefinition Height="1*" />
                 </Grid.RowDefinitions>
+
+
+                <TextBlock Text="{Binding Title}"
+                       FontSize="40" Grid.ColumnSpan="2" FontWeight="Bold"/>
+                
                 <TextBlock Text="{Binding Price, StringFormat={}{0:C2}}" FontSize="40" Grid.Row="1" FontWeight="Medium"/>
 
-                <Button Name="AddBtn" Grid.Row="3" Height="40" Width="200"
+                <Button Name="AddBtn" Grid.Row="3" Width="200"
                 HorizontalAlignment="Left" Content="Добавить" Click="AddBtn_Click"
                 Grid.ColumnSpan="2"/>
 
-                <TextBlock Text="{Binding Decscription}" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="40" Grid.Row="5"/>
+                <TextBlock Text="{Binding Description}" TextAlignment="Justify" VerticalAlignment="Top" 
+                           TextWrapping="Wrap" FontSize="25" Grid.Row="5"
+                           HorizontalAlignment="Left"/>
 
             </Grid>
 

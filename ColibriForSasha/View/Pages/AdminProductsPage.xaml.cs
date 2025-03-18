@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ColibriForSasha.AppData;
+using ColibriForSasha.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +25,35 @@ namespace ColibriForSasha.View.Pages
         public AdminProductsPage()
         {
             InitializeComponent();
+        }
+
+        private void SearchBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void DeleteBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void FilterCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+
+        private void SelectProductBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+
+
+            var button = sender as Button;
+            if (button == null) return;
+
+            var selectedProduct = button.DataContext as Product;
+            if (selectedProduct == null) return;
+
+            FrameHelper.MainAdminFrame.Navigate(new View.Pages.AdminInformationProductPage(selectedProduct));
         }
     }
 }

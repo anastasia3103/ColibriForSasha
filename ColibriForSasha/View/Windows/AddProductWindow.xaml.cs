@@ -64,16 +64,7 @@ namespace ColibriForSasha.View.Windows
 
         private void AddPhotoBtn_Click(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog();
-            fileDialog.ShowDialog();
-
-            foreach (var photo in fileDialog.FileNames)
-            {
-                _product.Photo = File.ReadAllBytes(photo);
-                App.context.Product.Add(_product);
-            }
-
-            MessageBox.Show("Фотография добавлена");
+            
         }
     }
 }
