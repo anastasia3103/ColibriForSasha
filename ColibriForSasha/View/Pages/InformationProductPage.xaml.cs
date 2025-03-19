@@ -54,9 +54,6 @@ namespace ColibriForSasha.View.Pages
             {
                 MessageBox.Show("Товар не выбран!");
             }
-
-            
-
         }
 
         private void BackBtn_Click(object sender, RoutedEventArgs e)
