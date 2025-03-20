@@ -30,8 +30,6 @@
                         </GridViewColumn.DisplayMemberBinding>
                     </GridViewColumn>
                     <GridViewColumn Header="Товар" DisplayMemberBinding="{Binding Product.Title}"/>
-                    <GridViewColumn Header="Тип" Width="130" DisplayMemberBinding="{Binding Product.TypeOfProduct.Title}"/>
-                    <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Product.Price, StringFormat={}{0}₽}"/>
                     <GridViewColumn Header="Статус" Width="150" DisplayMemberBinding="{Binding StatusOrder.Title}"/>
 
                 </GridView>

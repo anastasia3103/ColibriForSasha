@@ -1,5 +1,6 @@
 ﻿using ColibriForSasha.AppData;
 using ColibriForSasha.Model;
+using ColibriForSasha.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,7 +64,7 @@ namespace ColibriForSasha.View.Pages
             }
             ProductLb.ItemsSource = App.context.Product.ToList();
         }
-        
+
 
         private void FilterCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -77,7 +78,7 @@ namespace ColibriForSasha.View.Pages
             {
                 ProductLb.ItemsSource = product;
             }
-            
+
         }
 
 
@@ -92,6 +93,17 @@ namespace ColibriForSasha.View.Pages
             var selectedProduct = button.DataContext as Product;
             if (selectedProduct == null) return;
             NavigationService.Navigate(new View.Pages.AdminInformationProductPage(selectedProduct));
+        }
+
+        private void AddBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AddProductWindow addProductWindow = new AddProductWindow();
+
+            if (addProductWindow.ShowDialog() == true)
+            {
+                ProductLb.ItemsSource = product;
+
+            }
         }
     }
 }

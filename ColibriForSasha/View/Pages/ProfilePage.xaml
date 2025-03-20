@@ -98,6 +98,10 @@
 
             <Button Content="Подробнее" Name="MoreInfBtn" Click="MoreInfBtn_Click"
                     Width="200" HorizontalAlignment="Right" Grid.Row="4"/>
+
+            <Button Content="Отменить" Name="RemoveBtn" Click="RemoveBtn_Click_1"
+                    Width="200" HorizontalAlignment="Left" Background="Transparent" Grid.Row="4"/>
+
             <StackPanel  Grid.Row="6" Width="600" >
                 <TextBlock Text="Забрать заказ можно по адресу: " FontSize="20"  Foreground="Black"/>
                 <TextBlock Text="г.Москва, ул. Праворульная, дом 5, стр. 3 " FontSize="20" TextDecorations="Underline" Foreground="Black" />

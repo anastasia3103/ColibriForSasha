@@ -54,5 +54,15 @@ namespace ColibriForSasha.View.Pages
             authorizationWindow.Show();
             mainWindow.Close();
         }
+
+        private void RemoveBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveBtn_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
