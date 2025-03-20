@@ -22,24 +22,62 @@ namespace ColibriForSasha.View.Pages
     /// </summary>
     public partial class AdminProductsPage : Page
     {
+        public List<Product> product = App.context.Product.ToList();
         public AdminProductsPage()
         {
             InitializeComponent();
+            ProductLb.ItemsSource = product;
+
+            FilterCmb.SelectedValuePath = "Id";
+            FilterCmb.DisplayMemberPath = "Title";
+            FilterCmb.ItemsSource = App.context.TypeOfProduct.ToList();
+
+            App.context.TypeOfProduct.ToList().Insert(0, new TypeOfProduct() { Title = "Все типы" });
         }
 
         private void SearchBtn_Click(object sender, RoutedEventArgs e)
         {
 
+            ProductLb.ItemsSource = product.
+               Where(p => p.Title.Contains(ProductTb.Text)).ToList();
         }
 
         private void DeleteBtn_Click(object sender, RoutedEventArgs e)
         {
+            if (ProductLb.SelectedItem == null)
+            {
+                MessageBoxHelper.Information("Выберите шоу для удаления");
+                return;
+            }
 
+            Product selectedProduct = ProductLb.SelectedItem as Product;
+
+            var res = MessageBox.Show($"Вы уверены, что хотите удалить?",
+                "Подтверждение", MessageBoxButton.YesNo);
+
+            if (res == MessageBoxResult.Yes)
+            {
+                App.context.Product.Remove(selectedProduct);
+                App.context.SaveChanges();
+                MessageBoxHelper.Information("Удалено");
+            }
+            ProductLb.ItemsSource = App.context.Product.ToList();
         }
+        
 
         private void FilterCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            TypeOfProduct typeOfProduct = FilterCmb.SelectedItem as TypeOfProduct;
+            if (FilterCmb.SelectedIndex != 0)
+            {
+                ProductLb.ItemsSource = product.Where(x => x.TypeOfProduct.Id == typeOfProduct.Id);
 
+            }
+            else
+            {
+                ProductLb.ItemsSource = product;
+            }
+            
         }
 
 
@@ -47,13 +85,13 @@ namespace ColibriForSasha.View.Pages
         {
 
 
+
             var button = sender as Button;
             if (button == null) return;
 
             var selectedProduct = button.DataContext as Product;
             if (selectedProduct == null) return;
-
-            FrameHelper.MainAdminFrame.Navigate(new View.Pages.AdminInformationProductPage(selectedProduct));
+            NavigationService.Navigate(new View.Pages.AdminInformationProductPage(selectedProduct));
         }
     }
 }

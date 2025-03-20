@@ -16,40 +16,24 @@ using System.Windows.Shapes;
 namespace ColibriForSasha.View.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для AdminInformationProductPage.xaml
+    /// Логика взаимодействия для AdminInfAboutProductPage.xaml
     /// </summary>
-    public partial class AdminInformationProductPage : Page
+    public partial class AdminInfAboutProductPage : Page
     {
-        public AdminInformationProductPage(object selectedProduct)
+        public AdminInfAboutProductPage()
         {
             InitializeComponent();
+        }
 
-            DataContext = selectedProduct;
-
-
-            StatusProductCmb.SelectedValuePath = "Id";
-            StatusProductCmb.DisplayMemberPath = "Title";
-            StatusProductCmb.ItemsSource = App.context.TypeOfProduct.ToList();
-
-
+        private void StatusProductCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-
             App.context.SaveChanges();
             MessageBox.Show("Информация успешно изменена!");
-        }
-
-        private void StatusProductCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
-        }
-
-        private void BackBtn_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

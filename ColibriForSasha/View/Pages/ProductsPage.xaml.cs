@@ -22,6 +22,7 @@ namespace ColibriForSasha.View.Pages
     public partial class ProductsPage : Page
     {
         public List<Product> product = App.context.Product.ToList();
+        public List<TypeOfProduct> typeOfProduct = App.context.TypeOfProduct.ToList();
         public ProductsPage()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace ColibriForSasha.View.Pages
             FilterCmb.DisplayMemberPath = "Title";
             FilterCmb.ItemsSource = App.context.TypeOfProduct.ToList();
 
-            App.context.TypeOfProduct.ToList().Insert(0, new TypeOfProduct() { Title = "Все типы" });
+            typeOfProduct.Insert(0, new TypeOfProduct() { Title = "Все типы" });
 
 
 

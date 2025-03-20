@@ -43,7 +43,7 @@ namespace ColibriForSasha.View.Windows
                 Description = DescriptionTb.Text,
                 Price = Convert.ToDecimal(PriceTb.Text),
                 TypeOfProduct = TypeOfProductCmb.SelectedItem as TypeOfProduct,
-                StatusProductId = 1,
+                StatusProductId = 1
 
             };
             App.context.Product.Add(product);
@@ -64,7 +64,12 @@ namespace ColibriForSasha.View.Windows
 
         private void AddPhotoBtn_Click(object sender, RoutedEventArgs e)
         {
+
+            OpenFileDialog fileDialog = new OpenFileDialog();
+            fileDialog.ShowDialog();
             
+
+            MessageBox.Show("Фотография добавлена");
         }
     }
 }

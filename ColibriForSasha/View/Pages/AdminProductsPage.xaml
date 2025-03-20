@@ -71,7 +71,7 @@
                             </Button>
                             <TextBlock Text="{Binding Title}" FontWeight="Black" 
                            HorizontalAlignment="Left" FontSize="16" Grid.Row="2"/>
-                            <TextBlock Text="{Binding Price, StringFormat={}{0:C2}}" 
+                            <TextBlock Text="{Binding Price, StringFormat={}{0}₽}" 
                         HorizontalAlignment="Left" FontSize="16" Grid.Row="4"/>
                         </Grid>
                     </Border>

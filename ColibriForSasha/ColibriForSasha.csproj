@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AppData\FrameHelper.cs" />
+    <Compile Include="AppData\MessageBoxHelper.cs" />
     <Compile Include="Model\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -103,6 +104,9 @@
     </Compile>
     <Compile Include="Model\User.cs">
       <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="View\Pages\AdminInfAboutProductPage.xaml.cs">
+      <DependentUpon>AdminInfAboutProductPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Pages\AdminInformationProductPage.xaml.cs">
       <DependentUpon>AdminInformationProductPage.xaml</DependentUpon>
@@ -150,6 +154,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\TextBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Pages\AdminInfAboutProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

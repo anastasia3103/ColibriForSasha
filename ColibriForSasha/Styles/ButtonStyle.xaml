@@ -3,7 +3,7 @@
     <Style TargetType="Button">
         <Setter Property="FontWeight" Value="Medium"/>
         <Setter Property="Foreground" Value="#653D19"/>
-        <Setter Property="Background" Value="#DEB678"/>
+        <Setter Property="Background" Value="#EFE1CE"/>
         <Setter Property="Padding" Value="10"/>
 
         <Style.Resources>

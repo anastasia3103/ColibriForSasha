@@ -39,19 +39,17 @@
                     <RowDefinition Height="10" />
                     <RowDefinition Height="30" />
                     <RowDefinition Height="40" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="10" />
-                    <RowDefinition Height="30" />
-                    <RowDefinition Height="40" />
                     <RowDefinition Height="20" />
-                    <RowDefinition Height="40" />
                     <RowDefinition Height="10" />
-                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="50" />
                 </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
                 <TextBlock Text="Регистрация" Grid.Row="1" FontWeight="Bold"
-           HorizontalAlignment="Center" 
+           HorizontalAlignment="Center" Grid.ColumnSpan="3"
            FontSize="40" />
 
                 <TextBlock Text="Фамилия " Grid.Row="3" HorizontalAlignment="Left"  FontSize="20"/>
@@ -66,13 +64,16 @@
                 <TextBlock Text="Дата рождения " Grid.Row="12" HorizontalAlignment="Left"  FontSize="20"/>
                 <DatePicker Name="DayeOfBirthDp" Grid.Row="13"/>
 
-                <TextBlock Text="Номер телефона " Grid.Row="15" HorizontalAlignment="Left"  FontSize="20"/>
-                <TextBox Name="NumberPhoneTb" Grid.Row="16"/>
+                <TextBlock Text="Номер телефона " Grid.Column="2"  Grid.Row="3" HorizontalAlignment="Left"  FontSize="20"/>
+                <TextBox Name="NumberPhoneTb" Grid.Column="2"  Grid.Row="4"/>
 
-                <TextBlock Text="Почта " Grid.Row="18" HorizontalAlignment="Left"  FontSize="20"/>
-                <TextBox Name="EmailTb" Grid.Row="19"/>
+                <TextBlock Text="Почта "  Grid.Column="2"  Grid.Row="6" HorizontalAlignment="Left"  FontSize="20"/>
+                <TextBox Name="EmailTb" Grid.Column="2"  Grid.Row="7"/>
 
-                <TextBlock FontSize="20" Grid.Row="23"  HorizontalAlignment="Right">
+                <TextBlock Text="Пароль "  Grid.Column="2"  Grid.Row="9" HorizontalAlignment="Left"  FontSize="20"/>
+                <PasswordBox Name="PasswordPb" Grid.Column="2"  Grid.Row="10"/>
+
+                <TextBlock FontSize="20" Grid.Column="2"  Grid.Row="14"  HorizontalAlignment="Right">
         Уже есть аккаут?
         <Hyperlink Name="EntryHL" Click="EntryHL_Click">
              Войти
@@ -80,7 +81,8 @@
             </TextBlock>
 
             <Button Name="RegBtn" Click="RegBtn_Click" 
-            Content="Зарегистрироваться" Grid.Row="21" Width="250" HorizontalAlignment="Center"/>
+            Content="Зарегистрироваться" Grid.Row="21"
+                    Grid.Column="2" HorizontalAlignment="Center"/>
             </Grid>
     </Grid>
     </Grid>

@@ -16,22 +16,29 @@
         </Grid.ColumnDefinitions>
         <TextBlock Text="Заказы" FontWeight="Bold"
             FontSize="40" HorizontalAlignment="Center"/>
-        <ListView Name="OrderLv" Grid.Row="2">
+        <ListView Name="OrderLv" Grid.Row="2" SelectionChanged="OrderLv_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Id" DisplayMemberBinding="{Binding Id}"/>
-                    <GridViewColumn Header="Фамилия заказчика" Width="160" DisplayMemberBinding="{Binding User.Firstname}"/>
-                    <GridViewColumn Header="Имя заказчика" Width="160" DisplayMemberBinding="{Binding SUser.Name}"/>
+                    <GridViewColumn Header="ФИО заказчика" Width="300">
+                        <GridViewColumn.DisplayMemberBinding>
+                            <MultiBinding StringFormat="{}{0} {1} {2}">
+                                <Binding Path="User.Firstname" />
+                                <Binding Path="User.Name" />
+                                <Binding Path="User.Middlename" />
+                            </MultiBinding>
+                        </GridViewColumn.DisplayMemberBinding>
+                    </GridViewColumn>
                     <GridViewColumn Header="Товар" DisplayMemberBinding="{Binding Product.Title}"/>
                     <GridViewColumn Header="Тип" Width="130" DisplayMemberBinding="{Binding Product.TypeOfProduct.Title}"/>
-                    <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Product.Price, StringFormat={}{0:c0}}"/>
+                    <GridViewColumn Header="Цена" Width="100" DisplayMemberBinding="{Binding Product.Price, StringFormat={}{0}₽}"/>
                     <GridViewColumn Header="Статус" Width="150" DisplayMemberBinding="{Binding StatusOrder.Title}"/>
 
                 </GridView>
             </ListView.View>
         </ListView>
 
-        <Grid Grid.Column="2">
+        <Grid Grid.Column="2" Name="ProductDetailsGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="200" />
                 <RowDefinition Height="130" />
@@ -42,11 +49,11 @@
 
 
             <StackPanel VerticalAlignment="Center" Grid.Row="1">
-                <TextBlock Text="Статус товара"
+                <TextBlock Text="Статус заказа"
                 FontSize="20" Grid.ColumnSpan="2" VerticalAlignment="Center" FontWeight="Bold"/>
 
 
-                <ComboBox Name="StatusProductCmb" Height="50"/>
+                <ComboBox Name="StatusOrderCmb" Height="50" SelectionChanged="StatusOrderCmb_SelectionChanged"/>
             </StackPanel>
 
             <Button Name="EditBtn" Grid.Row="3" Width="200"

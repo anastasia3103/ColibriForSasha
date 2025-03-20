@@ -32,13 +32,20 @@ namespace ColibriForSasha.View.Windows
 
         private void ProductsBtn_Click(object sender, RoutedEventArgs e)
         {
-            FrameHelper.MainAdminFrame.Navigate(new View.Pages.AdminProductsPage());
+            MainAdminFrame.Navigate(new View.Pages.AdminProductsPage());
         }
 
         private void OrderBtn_Click(object sender, RoutedEventArgs e)
         {
 
-            FrameHelper.MainAdminFrame.Navigate(new View.Pages.AdminOrdersPage());
+            MainAdminFrame.Navigate(new View.Pages.AdminOrdersPage());
+        }
+
+        private void EntryBtn_Click(object sender, RoutedEventArgs e)
+        {
+            AuthorizationWindow authorizationWindow = new AuthorizationWindow();
+            authorizationWindow.Show();
+            Close();
         }
     }
 }

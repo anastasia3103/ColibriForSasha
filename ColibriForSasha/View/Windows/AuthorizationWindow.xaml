@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="AuthorizationWindow" SizeToContent="WidthAndHeight" 
         ResizeMode="NoResize" WindowStartupLocation="CenterScreen"
-        MinHeight="200" MinWidth="500">
+        MinHeight="200" MinWidth="30">
     <Grid Margin="20">
         <Grid.Background>
             <ImageBrush ImageSource="\resourse\фон2.jpg" />
