@@ -8,7 +8,7 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="AdminOrdersPage">
 
-    <Grid>
+    <Grid Name="MoreInfGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="10" />
@@ -51,7 +51,7 @@
                 FontSize="20" Grid.ColumnSpan="2" VerticalAlignment="Center" FontWeight="Bold"/>
 
 
-                <ComboBox Name="StatusOrderCmb" Height="50" SelectionChanged="StatusOrderCmb_SelectionChanged"/>
+                <ComboBox Name="StatusOrderCmb" Text="{Binding StatusOrder.Title}" Height="50" SelectionChanged="StatusOrderCmb_SelectionChanged"/>
             </StackPanel>
 
             <Button Name="EditBtn" Grid.Row="3" Width="200"

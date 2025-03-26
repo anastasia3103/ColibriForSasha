@@ -37,6 +37,8 @@ namespace ColibriForSasha.View.Pages
         private void MoreInfBtn_Click(object sender, RoutedEventArgs e)
         {
 
+
+            
         }
 
         private void EditTb_Click(object sender, RoutedEventArgs e)
@@ -63,6 +65,26 @@ namespace ColibriForSasha.View.Pages
         private void RemoveBtn_Click_1(object sender, RoutedEventArgs e)
         {
 
+            if (OrderLv.SelectedItem == null)
+            {
+                MessageBoxHelper.Information("Выберите товар для удаления");
+                return;
+            }
+
+            Order selectedOrder = OrderLv.SelectedItem as Order;
+
+            var res = MessageBox.Show($"Вы уверены, что хотите удалить?",
+                "Подтверждение", MessageBoxButton.YesNo);
+
+            if (res == MessageBoxResult.Yes)
+            {
+                App.context.Order.Remove(selectedOrder);
+                App.context.SaveChanges();
+                MessageBoxHelper.Information("Удалено");
+            }
+
+            OrderLv.ItemsSource = App.context.Order.
+                Where(u => u.User.Id == App.currentUser.Id).ToList();
         }
     }
 }

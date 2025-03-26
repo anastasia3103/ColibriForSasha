@@ -22,6 +22,8 @@ namespace ColibriForSasha.View.Pages
     /// </summary>
     public partial class AdminOrdersPage : Page
     {
+        private List<StatusOrder> statusOrder = App.context.StatusOrder.ToList();
+
         public AdminOrdersPage()
         {
             InitializeComponent();
@@ -30,18 +32,17 @@ namespace ColibriForSasha.View.Pages
 
             StatusOrderCmb.SelectedValuePath = "Id";
             StatusOrderCmb.DisplayMemberPath = "Title";
-            StatusOrderCmb.ItemsSource = App.context.StatusOrder.ToList();
+            StatusOrderCmb.ItemsSource = statusOrder;
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
-            App.context.SaveChanges();
-            MessageBoxHelper.Information("Статус товара успешно изменен!");
+
         }
 
         private void OrderLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            StatusOrderCmb.DataContext = OrderLv.SelectedItem as Order;
+            ProductDetailsGrid.DataContext = OrderLv.SelectedItem as Order;
         }
 
         private void StatusOrderCmb_SelectionChanged(object sender, SelectionChangedEventArgs e)

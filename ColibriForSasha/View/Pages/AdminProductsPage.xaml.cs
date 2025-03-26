@@ -47,7 +47,7 @@ namespace ColibriForSasha.View.Pages
         {
             if (ProductLb.SelectedItem == null)
             {
-                MessageBoxHelper.Information("Выберите шоу для удаления");
+                MessageBoxHelper.Information("Выберите товар для удаления");
                 return;
             }
 
